@@ -1,5 +1,5 @@
 queue()
-    .defer(d3.csv, "data/births.csv")
+    .defer(d3.json, "/data")
     .await(makeGraphs);
 
 function makeGraphs(error, birthsData) {
@@ -66,7 +66,44 @@ function makeGraphs(error, birthsData) {
 
 // ============================== Chart 2 ==================================
 
-    let month_dim = ndx.dimension(dc.pluck('month'));
+    let month_dim = ndx.dimension(function(d){
+        if (d.month == 1){
+            return "January";
+        }
+        if (d.month == 2){
+            return "February";
+        }
+        if (d.month == 3){
+            return "March";
+        }
+        if (d.month == 4){
+            return "April";
+        }
+        if (d.month == 5){
+            return "May";
+        }
+        if (d.month == 6){
+            return "June";
+        }
+        if (d.month == 7){
+            return "July";
+        }
+        if (d.month == 8){
+            return "August";
+        }
+        if (d.month == 9){
+            return "September";
+        }
+        if (d.month == 10){
+            return "October";
+        }
+        if (d.month == 11){
+            return "November";
+        }
+        if (d.month == 12){
+            return "December";
+        }
+    });
     let total_births_by_months = month_dim.group().reduceSum(dc.pluck('births'));
     
     dc.rowChart("#births-by-month")
