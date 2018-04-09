@@ -47,7 +47,7 @@ function makeGraphs(error, birthsData) {
     });
     let total_births_by_week_days = day_of_week_dim.group().reduceSum(dc.pluck('births'));
     
-    dc.barChart("#births-by-day-of-week")
+    var bbdow = dc.barChart("#births-by-day-of-week")
         .dimension(day_of_week_dim)
         .group(total_births_by_week_days)
         .transitionDuration(500)
@@ -154,8 +154,6 @@ function makeGraphs(error, birthsData) {
     let date_of_month_dim = ndx.dimension(dc.pluck('date_of_month'));
     let total_births_by_date_of_month = date_of_month_dim.group().reduceSum(dc.pluck('births'));
     
-    console.log(total_births_by_date_of_month.all())
-    
     dc.barChart("#births-by-date-of-month")
         .dimension(date_of_month_dim)
         .group(total_births_by_date_of_month)
@@ -166,6 +164,28 @@ function makeGraphs(error, birthsData) {
         .yAxis().ticks(4);
         
 // ============================== END Chart 4 ==============================
+
+
+var seasonPieChart = dc.pieChart('#season-pie-chart');
+
+    var season_dim = ndx.dimension(function(d) {
+        if(d['month'] >= 3 && d['month'] <= 5)
+            return 'Spring';
+        else if (d['month'] >= 6 && d['month'] <= 8)
+            return 'Summer';
+        else if (d['month'] >= 9 && d['month'] <= 11)
+            return 'Fall';
+        else
+            return 'Winter'
+    });
+    
+    var births_by_season = season_dim.group().reduceSum(dc.pluck('births'));
+
+   seasonPieChart
+       .radius(300)
+       .transitionDuration(1500)
+       .dimension(season_dim)
+       .group(births_by_season);
     
     dc.renderAll();
 }

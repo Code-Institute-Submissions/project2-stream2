@@ -3,7 +3,7 @@
 ## Overview
 
 ### General information
-This is Dan Dumitrache's second project for Code Institure bootcamp, Dublin, Ireland January 2018.  It presents graphs related to US number of births between 2000 and 2014. The data  the graphs are based onis provided by the US Social Security Administration. The original data-set can be found at (https://github.com/fivethirtyeight/data/blob/master/births/US_births_2000-2014_SSA.csv). Git repository can be seen at (https://github.com/saigonro/project2-stream2)
+This is Dan Dumitrache's second project for Code Institure bootcamp, Dublin, Ireland January 2018.  It presents graphs related to US number of births between 2000 and 2014. The data the graphs are based on is provided by the US Social Security Administration. The original data-set can be found at (https://github.com/fivethirtyeight/data/blob/master/births/US_births_2000-2014_SSA.csv). Git repository can be seen at (https://github.com/saigonro/project2-stream2)
 
 ### Navigation through the website
 This is a single page website. To see the whole content just scroll the page.
