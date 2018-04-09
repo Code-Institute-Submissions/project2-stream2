@@ -29,10 +29,12 @@ This website was created using the following technologies:
 - Responsive (mobile first) layout/graphs
 - Clear delimited sections
 - The user can interact and filter the data in the charts
+- Face dimension (season) created for the pie chart
 - The project includes the following type of graphs: bar chart, pie chart, row chart, and line chart
-- The data is stored in a MySQL database
+- The data is stored in a MongoDB database
 - The project uses Flask to retrieve the data from the database and return it to the browser
 - The charts are created by the D3.js library (https://d3js.org/)
+- The data is filtered with crossfilter.js
 
 ### Features Left to Implement
 - None
