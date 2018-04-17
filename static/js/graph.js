@@ -14,14 +14,7 @@ function makeGraphs(error, birthsData) {
     });
     
 
-
-
-
-
-
-
 // ============================== Chart 1 ==================================
-
     let day_of_week_dim = ndx.dimension(function(d){
         if (d.day_of_week == 1){
             return "Monday";
@@ -55,17 +48,10 @@ function makeGraphs(error, birthsData) {
         .x(d3.scale.ordinal().domain(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]))
         .xUnits(dc.units.ordinal)
         .yAxis().ticks(4);
-        
 // ============================== END Chart 1 ==============================
 
 
-
-
-
-
-
 // ============================== Chart 2 ==================================
-
     let month_dim = ndx.dimension(function(d){
         if (d.month == 1){
             return "January";
@@ -111,20 +97,12 @@ function makeGraphs(error, birthsData) {
             .dimension(month_dim)
             .group(total_births_by_months)
             .xAxis().ticks(4);
-
 // ============================== END Chart 2 ==============================
 
 
-
-
-
-
-
 // ============================== Chart 3 ==================================
-    
     let year_dim = ndx.dimension(dc.pluck('year'));
     let total_births_by_year = year_dim.group().reduceSum(dc.pluck('births'));
-    
     let minYear = year_dim.bottom(1)[0].year;
     let maxYear = year_dim.top(1)[0].year;
     
@@ -139,18 +117,10 @@ function makeGraphs(error, birthsData) {
             .x(d3.scale.linear().domain([minYear,maxYear]))
             .yAxis().ticks(4).tickFormat(d3.format("d"));
         chart.xAxis().tickFormat(d3.format("d"));
-
 // ============================== END Chart 3 ==============================
 
 
-
-
-
-
-
-
 // ============================== Chart 4 ==================================
-
     let date_of_month_dim = ndx.dimension(dc.pluck('date_of_month'));
     let total_births_by_date_of_month = date_of_month_dim.group().reduceSum(dc.pluck('births'));
     
@@ -162,10 +132,10 @@ function makeGraphs(error, birthsData) {
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .yAxis().ticks(4);
-        
 // ============================== END Chart 4 ==============================
 
 
+// ============================== Chart 5 ==================================
 var seasonPieChart = dc.pieChart('#season-pie-chart');
 
     var season_dim = ndx.dimension(function(d) {
@@ -181,11 +151,12 @@ var seasonPieChart = dc.pieChart('#season-pie-chart');
     
     var births_by_season = season_dim.group().reduceSum(dc.pluck('births'));
 
-   seasonPieChart
-       .radius(300)
-       .transitionDuration(1500)
-       .dimension(season_dim)
-       .group(births_by_season);
+    seasonPieChart
+        .radius(300)
+        .transitionDuration(1500)
+        .dimension(season_dim)
+        .group(births_by_season);
+// ============================== END Chart 5 ==============================
     
     dc.renderAll();
 }
