@@ -39,7 +39,7 @@ This website was created using the following technologies:
 - The charts are created by the D3.js library (https://d3js.org/)
 - The data is filtered with crossfilter.js
 
-### Features Left to Implement
+### Remaining Features to be Implemented
 - None
 
 ### Testing
@@ -50,7 +50,7 @@ This website was created using the following technologies:
 To view this website locally you have to download the entire repository on your machine, install all the necesary dependencies listed in the requirements.txt file, and run the dashboard.py file.
 
 ### Media and Icons
-The project does not use any icon pack nor media file appart of the logo which was created by me.
+The project does not use any icon pack nor media files with exception of the logo which was designed by the author of this repository.
 
 Logo Dashboard US births 2000 - 2014: (https://github.com/saigonro/project2-stream2/blob/master/static/images/logo-dash.png)
 
